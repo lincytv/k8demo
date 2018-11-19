@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: frontend
+spec:
+   rule:
+   - http:
+       paths:
+       - path: /
+         backend:
+            serviceName: ngnix-front
+            servicePort: 80
+       - path: /admin
+         backend:
+            serviceName: wordpress
+            servicePort: 8080
